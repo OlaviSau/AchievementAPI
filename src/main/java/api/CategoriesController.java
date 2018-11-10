@@ -18,8 +18,27 @@ public class CategoriesController {
                                 "the-7-habits-of-highly-effective-people.jpg",
                                 10,
                                 true
+                        ),
+                        new Achievement(
+                                2,
+                                "introduction-to-algorithms",
+                                "Introduction to Algorithms",
+                                "Read Introduction to Algorithms cover to cover.",
+                                "introduction-to-algorithms.png",
+                                10,
+                                false
+                        ),
+                        new Achievement(
+                                3,
+                                "code-complete",
+                                "Code Complete",
+                                "Read Code Complete cover to cover.",
+                                "code-complete.png",
+                                10,
+                                true
                         )
-                })
+                }),
+                new Category(2, "travel", "Travel", new Achievement[]{})
         };
     }
 }
