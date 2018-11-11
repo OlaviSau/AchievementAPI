@@ -19,6 +19,7 @@ public class Application {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/categories").allowedOrigins("*");
+                registry.addMapping("/categories/*").allowedOrigins("*");
             }
         };
     }
