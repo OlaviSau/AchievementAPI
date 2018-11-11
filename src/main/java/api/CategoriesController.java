@@ -1,30 +1,31 @@
 package api;
 
+import api.model.Achievement;
+import api.model.Category;
+import api.repository.CategoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CategoriesController {
 
+    @Autowired
+    CategoryRepository repository;
+
     @RequestMapping("/categories")
-    public Category[] categories() {
-        return new Category[]{
-                new Category(1, "literature", "Literature", new Achievement[]{
-                        new Achievement(
-                                1,
-                                "the-7-habits-of-highly-effective-people",
-                                "The 7 Habits of Highly Effective People",
-                                "Read The 7 Habits of Highly Effective People cover to cover.",
-                                "the-7-habits-of-highly-effective-people.jpg",
-                                10,
-                                true
-                        ),
+    public Iterable<Category> categories() {
+        return repository.findAll();
+    }
+
+    /*
+
                         new Achievement(
                                 2,
-                                "introduction-to-algorithms",
-                                "Introduction to Algorithms",
-                                "Read Introduction to Algorithms cover to cover.",
-                                "introduction-to-algorithms.png",
+                                "",
+                                "",
+                                "",
+                                "",
                                 10,
                                 false
                         ),
@@ -40,5 +41,5 @@ public class CategoriesController {
                 }),
                 new Category(2, "travel", "Travel", new Achievement[]{})
         };
-    }
+     */
 }

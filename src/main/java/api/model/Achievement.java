@@ -1,14 +1,24 @@
-package api;
+package api.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Achievement {
 
-    private final long id;
-    private final int points;
-    private final String img;
-    private final String title;
-    private final String key;
-    private final String description;
-    private final Boolean completed;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private long id;
+    private int points;
+    private String img;
+    private String title;
+    private String key;
+    private String description;
+    private Boolean completed;
+
+    protected Achievement() {}
 
     public Achievement(
             long id,
