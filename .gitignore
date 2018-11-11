@@ -1,6 +1,7 @@
 .idea
 .gradle
 build
+src/main/resources/application.properties
 achievement-api.iml
 achievement-api.ipr
 achievement-api.iws
