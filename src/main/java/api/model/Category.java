@@ -9,6 +9,7 @@ import java.util.Set;
 public class Category {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @JsonIgnore
     private long id;
 
@@ -19,7 +20,7 @@ public class Category {
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Set<Achievement> achievements;
 
-    protected Category() {}
+    public Category() {}
 
     public Category(
             String key,
@@ -35,9 +36,13 @@ public class Category {
         return key;
     }
 
+    public void setKey(String key) { this.key = key; }
+
     public String getName() {
         return name;
     }
+
+    public void setName(String name) { this.name = name; }
 
     public Set<Achievement> getAchievements() {
         return achievements;
