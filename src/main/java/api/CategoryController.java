@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class CategoriesController {
+public class CategoryController {
 
     @Autowired
     CategoryRepository repository;
 
-    @RequestMapping("/categories")
+    @RequestMapping("/category")
     public Iterable<Category> categories() {
         return repository.findAll();
     }
 
-    @RequestMapping("/categories/{key}")
+    @RequestMapping("/category/{key}")
     public Category category(@PathVariable(name = "key") String key) {
         return repository.findByKey(key);
     }
