@@ -1,5 +1,7 @@
 package api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -7,6 +9,9 @@ import java.util.Set;
 public class Category {
 
     @Id
+    @JsonIgnore
+    private long id;
+
     private String key;
     private String name;
 
