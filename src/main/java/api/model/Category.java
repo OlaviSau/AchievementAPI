@@ -11,7 +11,7 @@ public class Category {
     private String name;
 
     @OneToMany
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Set<Achievement> achievements;
 
     protected Category() {}
