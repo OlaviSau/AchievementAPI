@@ -13,6 +13,7 @@ public class Category {
     @JsonIgnore
     private long id;
 
+    @JsonIgnore
     private String key;
     private String name;
 
