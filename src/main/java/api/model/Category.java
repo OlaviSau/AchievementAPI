@@ -10,7 +10,6 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @JsonIgnore
     private long id;
 
     @JsonIgnore
