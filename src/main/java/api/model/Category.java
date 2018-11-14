@@ -47,4 +47,6 @@ public class Category {
     public Set<Achievement> getAchievements() {
         return achievements;
     }
+
+    public long getId() { return id; }
 }

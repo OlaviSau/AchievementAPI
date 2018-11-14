@@ -15,9 +15,9 @@ public class CategoryController {
 
 
 
-    @RequestMapping(value = "/category/{key}", method = RequestMethod.PUT)
-    public void save(@PathVariable(name = "key") String key, @RequestBody Category properties) {
-        Category category = repository.findByKey(key).orElse(new Category());
+    @RequestMapping(value = "/category", method = RequestMethod.PUT)
+    public void save(@RequestBody Category properties) {
+        Category category = repository.findById(properties.getId()).orElse(new Category());
         category.setName(properties.getName());
         category.setKey(properties.getKey());
 
