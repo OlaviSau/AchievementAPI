@@ -11,8 +11,6 @@ public class Category {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id;
-
-    @JsonIgnore
     private String key;
     private String name;
 
