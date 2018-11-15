@@ -1,17 +1,21 @@
 package api.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Achievement {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private long id;
     private int points;
     private String img;
     private String title;
-    @Id
     private String key;
-    private String description;
+    @OneToMany
+    @JoinColumn(name = "achievement_id", referencedColumnName = "id")
+    private Set<Task> tasks;
     private Boolean completed;
 
     protected Achievement() {}
@@ -19,7 +23,7 @@ public class Achievement {
     public Achievement(
             String key,
             String title,
-            String description,
+            Set<Task> tasks,
             String img,
             int points,
             Boolean completed
@@ -28,8 +32,7 @@ public class Achievement {
         this.title = title;
         this.points = points;
         this.img = img;
-
-        this.description = description;
+        this.tasks = tasks;
         this.completed = completed;
     }
 
@@ -49,9 +52,7 @@ public class Achievement {
         return key;
     }
 
-    public String getDescription() {
-        return description;
-    }
+    public Set<Task> getTasks() { return this.tasks; }
 
     public Boolean getCompleted() {
         return completed;
