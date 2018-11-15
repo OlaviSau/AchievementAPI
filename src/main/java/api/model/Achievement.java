@@ -1,6 +1,7 @@
 package api.model;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -15,7 +16,8 @@ public class Achievement {
     private String key;
     @OneToMany
     @JoinColumn(name = "achievement_id", referencedColumnName = "id")
-    private Set<Task> tasks;
+    @OrderColumn(name="order")
+    private Task[] tasks;
     private Boolean completed;
 
     protected Achievement() {}
@@ -23,7 +25,7 @@ public class Achievement {
     public Achievement(
             String key,
             String title,
-            Set<Task> tasks,
+            Task[] tasks,
             String img,
             int points,
             Boolean completed
@@ -52,7 +54,7 @@ public class Achievement {
         return key;
     }
 
-    public Set<Task> getTasks() { return this.tasks; }
+    public Task[] getTasks() { return this.tasks; }
 
     public Boolean getCompleted() {
         return completed;
