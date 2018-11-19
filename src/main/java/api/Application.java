@@ -3,6 +3,7 @@ package api;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -19,7 +20,7 @@ public class Application {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/category").allowedOrigins("*").allowedMethods("GET", "PUT");
-                registry.addMapping("/category/*").allowedOrigins("*");
+                registry.addMapping("/category/*").allowedOrigins("*").allowedMethods("GET", "DELETE");
             }
         };
     }

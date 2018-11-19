@@ -16,13 +16,19 @@ public class CategoryController {
 
 
     @RequestMapping(value = "/category", method = RequestMethod.PUT)
-    public void save(@RequestBody Category properties) {
+    public long save(@RequestBody Category properties) {
         Category category = repository.findById(properties.getId()).orElse(new Category());
         category.setName(properties.getName());
         category.setKey(properties.getKey());
 
-        repository.save(category);
+        return repository.save(category).getId();
     }
+
+    @RequestMapping(value = "/category/{key}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable(name = "key") String key) {
+        repository.findByKey(key).ifPresent(category -> repository.delete(category));
+    }
+
 
 
     @RequestMapping("/category")
